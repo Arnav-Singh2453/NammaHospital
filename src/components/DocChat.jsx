@@ -41,7 +41,9 @@ export default function DocChat() {
     const [message, setMessage] = useState({ text: null, type: null });
     const [file, setFile] = useState(null);
     useEffect(() => {
-        socketRef.current = io("https://nammahospital.onrender.com");
+        socketRef.current = io("https://nammahospital.onrender.com", {
+  transports: ["websocket"]
+});
     
     socketRef.current.emit("join-room", {doctorId,patientId});
 

@@ -18,7 +18,9 @@ const { doctorId, patientId } = useParams();
    const [file, setFile] = useState(null);
      useEffect(() => {
     // Room name = doctorId_patientId
-    socketRef.current = io("https://nammahospital.onrender.com");
+    socketRef.current = io("https://nammahospital.onrender.com", {
+  transports: ["websocket"]
+});
     socketRef.current.emit("join-room", {doctorId,patientId});
 
       fetch(`https://nammahospital.onrender.com/chat/${doctorId}/${patientId}`)
@@ -193,35 +195,7 @@ const endChat = async () => {
         )}
       </div>
     </div>
-    {/*
-    <div>
-      <h2>Chat with Doctor {doctorId}</h2>
-      <div
-        style={{
-          border: "1px solid black",
-          height: "300px",
-          overflowY: "scroll",
-          padding: "5px",
-        }}
-        >
-        {messages.map((m, i) => (
-          <div key={i}>
-            <b>{m.sender}: </b>
-            {m.text}
-          </div>
-        ))}
-        <div ref={chatEndRef} />
-      </div>
-
-      <input
-        value={text}
-        disabled={ended}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Type message..."
-        />
-      <button disabled={ended} onClick={sendMessage}>Send</button>
-    </div>
-    */}
+    
         </>
   );  
 
