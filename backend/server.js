@@ -170,7 +170,9 @@ app.post("/upload", upload.single("file"), (req, res) => {
     fileType: req.file.mimetype
   });
 });
-
+app.get("/", (req, res) => {
+  res.send("Namma Hospital backend is running");
+});
 app.get('/chat/:doctorId/:patientId', async (req, res) => {
   const { doctorId, patientId } = req.params;
   let chat = await Chat.findOne({ doctorId, patientId });
