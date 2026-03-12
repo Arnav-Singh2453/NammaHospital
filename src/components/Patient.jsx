@@ -68,11 +68,11 @@ const MessageModal = ({ message, type, onClose }) => {
     const { lat, lon } = location;
       if(!lat || !lon) return;
       try {
-          const yep = await axios.get("http://localhost:5000/getid",{params : {
+          const yep = await axios.get("https://nammahospital.onrender.com/getid",{params : {
     uname: params.username
   }})
         setid(yep.data.id)
-        const res = await axios.get("http://localhost:5000/api/doctors", {
+        const res = await axios.get("https://nammahospital.onrender.com/api/doctors", {
           params: { lat, lon, specialization }
         });
         setDoctors(res.data);

@@ -18,10 +18,10 @@ const { doctorId, patientId } = useParams();
    const [file, setFile] = useState(null);
      useEffect(() => {
     // Room name = doctorId_patientId
-    socketRef.current = io("http://localhost:5000");
+    socketRef.current = io("https://nammahospital.onrender.com");
     socketRef.current.emit("join-room", {doctorId,patientId});
 
-      fetch(`http://localhost:5000/chat/${doctorId}/${patientId}`)
+      fetch(`https://nammahospital.onrender.com/chat/${doctorId}/${patientId}`)
     .then((res) => res.json())
     .then((data) => setMessages(data.messages));
     // Line 22: Listen for messages from server
@@ -70,7 +70,7 @@ const handleFileUpload = async () => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await fetch("http://localhost:5000/upload", {
+  const res = await fetch("https://nammahospital.onrender.com/upload", {
     method: "POST",
     body: formData
   });
@@ -90,7 +90,7 @@ const handleFileUpload = async () => {
 };
 const endChat = async () => {
   try {
-    const res = await fetch(`http://localhost:5000/patients/${patientId}/uname`);
+    const res = await fetch(`https://nammahospital.onrender.com/patients/${patientId}/uname`);
     const data = await res.json();
     if (data.uname) {
       navigate(`/patient/${data.uname}`);

@@ -81,7 +81,7 @@ function Chatbot() {
     };
 
     // Send only the word/term
-    const res = await axios.post("http://localhost:5000/translate", {
+    const res = await axios.post("https://nammahospital.onrender.com/translate", {
       text,          // e.g., "Cardiologist"
       target: langMap[targetLang],
     });
@@ -108,7 +108,7 @@ function Chatbot() {
         const { latitude, longitude } = position.coords;
 
         // Send symptoms + location together
-        const res = await axios.post("http://localhost:5000/chat", {
+        const res = await axios.post("https://nammahospital.onrender.com/chat", {
           symptoms,
           lat: latitude,
           lon: longitude,

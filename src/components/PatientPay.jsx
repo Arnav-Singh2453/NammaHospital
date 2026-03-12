@@ -19,7 +19,7 @@ const initSocket = () => {
     socketRef.current = io("http://localhost:5000");
     socketRef.current.emit("join-room", { doctorId, patientId });
 
-    fetch(`http://localhost:5000/chat/${doctorId}/${patientId}`)
+    fetch(`https://nammahospital.onrender.com/chat/${doctorId}/${patientId}`)
       .then((res) => res.json())
       .then((data) => setMessages(data.messages));
        socketRef.current.on("chat-history", (messages) => {
@@ -44,13 +44,13 @@ let pollInterval;
   async function initChat() {
       try {
         // Check if the patient has paid for this doctor
-        const res = await fetch(`http://localhost:5000/api/payment/session/${doctorId}/${patientId}`);
+        const res = await fetch(`https://nammahospital.onrender.com/api/payment/session/${doctorId}/${patientId}`);
         const data = await res.json();
 
         if (!data.paid) {
           // Redirect to payment page
           console.log(patientId)
-          const payRes = await fetch("http://localhost:5000/api/payment/create-order", {
+          const payRes = await fetch("https://nammahospital.onrender.com/api/payment/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ doctorId, patientId, amount: 1 }),
@@ -62,7 +62,7 @@ let pollInterval;
           setPaymentLink(paymentLink);
           const paymentWindow = window.open(paymentLink, "_blank");
 pollInterval = setInterval(async () => {
-  const statusRes = await fetch(`http://localhost:5000/api/payment/check-link/${linkId}`);
+  const statusRes = await fetch(`https://nammahospital.onrender.com/api/payment/check-link/${linkId}`);
   const statusData = await statusRes.json();
   if (statusData.paid) {
     clearInterval(pollInterval);

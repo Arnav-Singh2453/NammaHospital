@@ -15,7 +15,7 @@ const Doclogin = (props) => {
    const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:5000/doclogin", form);
+    const res = await axios.post("https://nammahospital.onrender.com/doclogin", form);
     const { uid, name } = res.data;          // destructure object
     
     navigate(`/docdash/${uid}`);

@@ -26,7 +26,7 @@ useEffect(() => {
     const fetchChats = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/doctor/${doctorId}/chats`
+          `https://nammahospital.onrender.com/doctor/${doctorId}/chats`
         );
         setChats(res.data); // Line 13: store in state
       } catch (err) {

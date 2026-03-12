@@ -41,12 +41,12 @@ export default function DocChat() {
     const [message, setMessage] = useState({ text: null, type: null });
     const [file, setFile] = useState(null);
     useEffect(() => {
-        socketRef.current = io("http://localhost:5000");
+        socketRef.current = io("https://nammahospital.onrender.com");
     
     socketRef.current.emit("join-room", {doctorId,patientId});
 
 
-      fetch(`http://localhost:5000/chat/${doctorId}/${patientId}`)
+      fetch(`https://nammahospital.onrender.com/chat/${doctorId}/${patientId}`)
     .then((res) => res.json())
     .then((data) => setMessages(data.messages));
     // Line 22: Listen for messages
@@ -96,7 +96,7 @@ useEffect(() => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await fetch("http://localhost:5000/upload", {
+  const res = await fetch("https://nammahospital.onrender.com/upload", {
     method: "POST",
     body: formData
   });

@@ -41,7 +41,7 @@ const Register = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const res = await axios.post("http://localhost:5000/register",form)
+      const res = await axios.post("https://nammahospital.onrender.com/register",form)
       console.log(res.data.message)
     }catch(err){
           if (err.response && err.response.data) {
