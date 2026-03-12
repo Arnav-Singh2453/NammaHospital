@@ -115,7 +115,7 @@ const Login = ({name, setname, log,setlog}) => {
               onChange={handleChange}
               value={form.uname}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-500 focus:ring-opacity-50"
-              placeholder="Your username"
+              placeholder="USE : babul12"
             />
           </div>
           <div>
@@ -127,7 +127,7 @@ const Login = ({name, setname, log,setlog}) => {
               onChange={handleChange}
               value={form.password}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-500 focus:ring-opacity-50"
-              placeholder="••••••••"
+              placeholder="USE : hello"
             />
           </div>
           
