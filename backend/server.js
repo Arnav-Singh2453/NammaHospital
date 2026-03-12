@@ -67,12 +67,9 @@ app.get("/test", async (req, res) => {
 });
 
 const io = new Server(server,{
-  cors:{
-    origin: "*",
-      methods: ["GET", "POST"],
-
-  }}
-)
+  cors:{ origin: "*", methods: ["GET","POST"] },
+  transports: ["websocket"]
+})
 app.post("/chat", async (req, res) => {
   try {
     const { symptoms, lat, lon } = req.body;

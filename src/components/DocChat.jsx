@@ -216,42 +216,7 @@ const isDoctor = (sender) => sender === "Doctor";
         )}
       </div>
     </div>
-    {/*
-      <div>
-      <h2>Chat with Patient {patientId}</h2>
-      <div
-      style={{
-        border: "1px solid black",
-        height: "300px",
-        overflowY: "scroll",
-        padding: "5px",
-      }}
-      >
-      {messages.map((m, i) => (
-        <div key={i}>
-        <b>{m.sender}: </b>
-        {m.text}
-        </div>
-      ))}
-      <div ref={chatEndRef} />
-      </div>
-      
-      <input
-      value={text}
-      disabled={ended}
-      onChange={(e) => setText(e.target.value)}
-      placeholder="Type message..."
-      />
-      <button disabled={ended} onClick={sendMessage}>Send</button>
-      <button
-      onClick={() => {
-        socketRef.current.emit("end-chat", { room: `${doctorId}_${patientId}` });
-      }}
-      >
-      End Chat
-      </button>
-      </div>
-      */}
+    
       </>
     );
   }
