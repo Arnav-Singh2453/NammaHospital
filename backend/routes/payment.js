@@ -97,8 +97,8 @@ router.get("/check-link/:linkId", async (req, res) => {
     // Cashfree API to get link details
     const resp = await fetch(`https://sandbox.cashfree.com/pg/links/${linkId}`, {
       headers: {
-        "x-client-id":  process.env.CASHFREE_CLIENT_ID,
-    "x-client-secret": process.env.CASHFREE_CLIENT_SECRET,
+   "x-client-id": process.env.CASHFREE_CLIENT_ID,
+    "x-client-secret":process.env.CASHFREE_CLIENT_SECRET,
     "x-api-version": process.env.CASHFREE_API_VERSION,
       },
     });
