@@ -29,7 +29,7 @@ const Login = ({name, setname, log,setlog}) => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try{
-      const res = await axios.post("http://localhost:5000/login",form)
+      const res = await axios.post("https://nammahospital.onrender.com/login",form)
       console.log(res.data.message)
        setlog(true)
       setname(form.uname)
